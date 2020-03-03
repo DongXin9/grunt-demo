@@ -1,23 +1,12 @@
 /* global module : true*/
 module.exports = function (grunt) {
   grunt.initConfig({
-    run:{
-      api:{
-        options:{ wait:false },
-        args:['./app.js']
-      }
-    },
-    mochacli:{
-      all:['test/*.js'],
-      options:{
-        reportor:'spec',
-        bail:true
-      }
-    }
+    cssmin:{
+      'rectangle.min.css':'rectangle.css'
+    }  
   });
 
-  grunt.loadNpmTasks('grunt-mocha-cli');
-  grunt.loadNpmTasks('grunt-run');
-
-  grunt.registerTask('default', ['run','mochacli','stop:api']);
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+ 
+  grunt.registerTask('default', ['cssmin']);
 };
